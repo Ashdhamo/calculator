@@ -1,0 +1,45 @@
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 equal-width columns */
+    grid-template-rows: repeat(5, 1fr); /* 5 equal-height rows */
+    gap: 0; /* No gaps between grid items */
+    max-width: 400px;
+    margin: auto;
+    border: 1px solid #000; /* Adds a border around the entire grid */
+    box-sizing: border-box;
+}
+
+.display {
+    grid-column: span 4; /* Spans all 4 columns of the grid */
+    background-color: #000; 
+    padding: 20px; /* Adds spacing inside the display */
+    font-size: 2rem; /* Larger font size for better visibility */
+    text-align: right; /* Aligns text to the right inside the display */
+    border: 1px solid #000; /* Adds a border to the display */
+    box-sizing: border-box; /* Ensures padding and border are included in the size */
+}
+
+button {
+    padding: 20px; /* Button size */
+    font-size: 1.5rem; /* Font size for button text */
+    border: 1px solid #000; /* Adds a border around each button */
+    box-sizing: border-box; /* Ensures borders are included in the button size */
+    cursor: pointer; /* Changes cursor to pointer for buttons */
+}
+
+.function, 
+.equal-button {
+    background-color: #ffae00; /* Yellow-orange background for functions and equal button */
+}
+
+.equal-button {
+    grid-column: span 4; /* Spans all 4 columns for equal button */
+}
+
+.btn {
+    background-color: #cfcec8; /* Light gray background for regular buttons */
+}
+
+.zero {
+    grid-column: span 2; /* Spans across two columns for zero button */
+}
