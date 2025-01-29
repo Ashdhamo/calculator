@@ -34,14 +34,16 @@ button {
     cursor: pointer;
 }
 
-.function {
+.function,
+.equal-button, 
+.delete-button,
+.clear-button {
     background-color: #ffae00;
 }
 
-.equal-button, 
-.delete-button {
+.equal-button 
+{
     grid-column: span 2; 
-    background-color: #ffae00;
 }
 
 .btn {
