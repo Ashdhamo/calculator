@@ -1,8 +1,18 @@
-var buttons = document.querySelectorAll("button");
-var display = document.querySelector(".display-text");
+let displayArray = [];
 
-buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-        display.innerHTML = this.innerHTML;
+$(document).ready(function() {
+    var display = $(".display-text");
+
+    $("button").on("click", function() {
+        let value = $(this).text();
+
+        if (value === "DEL") {
+            displayArray.pop();
+        } else {
+             displayArray.push(value);
+        }
+
+        // Update the display with joined values
+        display.text(displayArray.join(""));
     });
 });
