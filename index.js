@@ -1,6 +1,12 @@
 let displayArray = [];
 let currentInput = ""; 
 
+function clear_all() {
+    displayArray = [];
+    currentInput = "";
+    $(".display-text").text("");
+}
+
 $(document).ready(function() {
     var display = $(".display-text");
 
@@ -18,6 +24,9 @@ $(document).ready(function() {
             // If delete button is pressed, remove the last digit
             currentInput = currentInput.slice(0, -1);
             display.text(currentInput);
+        }else if (value === "Clear") {
+            // If clear button is pressed, clear the display
+            clear_all();
         } else if (["+", "-", "x", "/"].includes(value)) {
             // If an operator is pressed, store the current number in displayArray
             if (currentInput !== "") {
@@ -44,12 +53,26 @@ $(document).ready(function() {
                 // Perform the calculation
                 let result = eval(`${num1} ${operator} ${num2}`);
 
+                result = parseFloat(result.toFixed(6));
+                if (Math.abs(result) >= 10_000_000) {
+                    result = result.toExponential(1).replace("e", " E ");
+                }
+
                 // Display the result
                 display.text(result);
 
                 // Reset displayArray with the result for further calculations
                 displayArray = [result];
-                currentInput = "";
+                if (result === Infinity || isNaN(result)) {
+                    display.text("Error: Invalid Operation");
+                    displayArray = [];
+                    currentInput = "";
+                
+                } else {
+                    display.text(result);
+                    displayArray = [result];
+                    currentInput = result.toString();
+                }
             }
         }
     });
