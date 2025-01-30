@@ -93,8 +93,13 @@ $(document).ready(function () {
         let value = $(this).text();
         if ($.isNumeric(value) || value === ".") {
             if (lastResult !== null && !awaitingOperator) {
-                clear_all();
+                clear_all();            
+            
+            currentInput += value;
+            display.text(currentInput);
+            awaitingOperator = false;
             }
         }
+
     });
 });
