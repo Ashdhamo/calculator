@@ -53,3 +53,6 @@ button {
 .zero {
     grid-column: span 2;
 }
+.body{
+    font-family: sans-serif;
+}
